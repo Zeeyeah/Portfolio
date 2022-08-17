@@ -1,13 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --primary-blue: #384b76;
+  --secondary-blue: #48629B;
+  --white: #f3f3f3;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  position: absolute;
+  width: 600px;
+  height: 100px;
+  left: 40px;
+  bottom: 400px;
+  font-weight: 1000;
+}
+
+.title-intro {
+  color: #58595b;
+  font-size: 16px;
+  margin: 0px 5px;
+}
+
+.title>p {
+  color: #58595b;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.job-title {
+  font-size: 3.5rem;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--secondary-blue);
+}
+
+.title-btn {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-btn-work {
+  width: 150px;
+  height: 50px;
+  background-color: var(--secondary-blue);
+  margin-top: 20px;
+  text-align: center;
+  color: var(--white);
+  font-size: 20px;
+  padding: 15px 0;
+  text-decoration: none;
+}
+
+.title-btn-about {
+  width: 150px;
+  height: 50px;
+  border: 2px #48629B solid;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  padding: 15px 0;
+  color: #48629B;
+  text-decoration: none;
+}
+
+.about-arrow {
+  width: 250px;
+  position: absolute;
+  top: 160px;
+  left: 160px;
+  opacity: 30%;
+}
+
+.work-arrow {
+  width: 250px;
+  position: absolute;
+  top: 100px;
+  left: 160px;
+  opacity: 30%;
+}
+
+.num-home {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12rem;
+  position: absolute;
+  bottom: 0px;
+  left: 40px;
+  color: rgba(62, 81, 122, .1);
+  pointer-events: none;
+  opacity: 50%;
+}
+
+.num-home>p {
+  font-size: 2.5rem;
+  transform: rotateZ(90deg);
+  transform-origin: center;
+  position: absolute;
+  right: -75px;
+  top: 90px;
+  margin-left: 20px;
+}
+
+.menu>h2 {
+  position: absolute;
+}
+
+.background {
+  position: absolute;
+  height: 100vh;
+  right: 0;
+}
+
+.sign {
+  width: 100px;
+  margin: 5px 40px;
+  position: absolute;
+  top: 0;
+}
+
+.nav-bar {
+  position: absolute;
+  display: flex;
+  right: 0px;
+  top: 0;
+}
+
+.nav-item {
+  margin: 30px 40px;
+  list-style: none;
+  color: white;
+}
+
+.sign-bracket,
+.sign-word {
+  stroke-dasharray: 1000;
+  animation: dash 5s linear;
+}
+
+@keyframes dash {
+  0% {
+    fill-opacity: 0%;
+    stroke-dashoffset: 1000;
+  }
+
+  23% {
+
+    fill-opacity: 0%;
+  }
+
+  50% {
+    fill-opacity: 100%;
+
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* 
+Project Component Styles
+*/
+
+
+.projects {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-menu {
+  width: 30vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(145deg, #4e6ba9, #5d7fc9);
+  box-shadow: 20px 20px 60px #2a3a5c inset;
+  z-index: 2222;
+}
+
+.projects-menu-wrapper {
+  position: relative;
+  width: 30vw;
+  height: 100vh;
+}
+
+.num-projects {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12rem;
+  position: absolute;
+  bottom: 0px;
+  left: 40px;
+  color: rgba(243, 243, 243, .1);
+  pointer-events: none;
+}
+
+.num-projects>p {
+  font-size: 22px;
+  transform: rotateZ(90deg);
+  transform-origin: center;
+  position: absolute;
+  right: -70px;
+  top: 110px;
+  margin-left: 20px;
+}
+
+.project-list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.project-title {
+  font-size: 40px;
+  width: max(50%, 30%, 70%);
+  margin: 30px 55px;
+  font-weight: 900;
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.react-projects-logo,
+.illustrator-projects-logo,
+.ui-projects-logo {
+  width: 30px;
+  margin: 0 20px;
+}
+
+.ui-projects-logo {
+  height: 30px;
+}
+
+.react-projects>p,
+.illustrator-projects>p,
+.ui-projects>p,
+.react-projects-open>p,
+.illustrator-projects-open>p,
+.ui-projects-open>p {
+  margin: 10px 20px;
+}
+
+.react-projects {
+  width: 80%;
+  margin-top: 10%;
+  margin-right: 5%;
+  min-height: 50px;
+  padding: 10px 0;
+  background-color: var(--primary-blue);
+  border-radius: 30px;
+  display: flex;
+  transition: all 0.5s ease-in;
+  color: #f3f3f3;
+  cursor: pointer;
+  border-radius: 50px;
+  border-radius: 50px;
+  background: #48629B;
+  box-shadow: 15px 15px 30px #394d7a,
+    -15px -15px 30px #6d89c4;
+}
+
+.illustrator-projects {
+  width: 80%;
+  margin-top: 10%;
+  margin-right: 5%;
+  min-height: 50px;
+  padding: 10px 0;
+  background-color: var(--primary-blue);
+  border-radius: 30px;
+  display: flex;
+  transition: all 0.5s ease-in;
+  color: #f3f3f3;
+  cursor: pointer;
+  border-radius: 50px;
+  border-radius: 50px;
+  background: #48629B;
+  box-shadow: 15px 15px 30px #394d7a,
+    -15px -15px 30px #6d89c4;
+}
+
+.ui-projects {
+  width: 80%;
+  margin-top: 10%;
+  margin-right: 5%;
+  min-height: 50px;
+  padding: 10px 0;
+  background-color: var(--primary-blue);
+  border-radius: 30px;
+  display: flex;
+  transition: all 0.5s ease-in;
+  color: #f3f3f3;
+  cursor: pointer;
+  border-radius: 50px;
+  background: #48629B;
+  box-shadow: 15px 15px 30px #394d7a,
+    -15px -15px 30px #6d89c4;
+}
+
+.react-projects-open {
+  width: 85%;
+  margin-top: 10%;
+  padding: 10px 0;
+  min-height: 50px;
+  background-color: #f3f3f3;
+  display: flex;
+  transition: all 0.5s ease-in;
+  color: var(--secondary-blue);
+  border-radius: 50px;
+  background: linear-gradient(225deg, #fff, #dbdbdb);
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.illustrator-projects-open {
+  width: 85%;
+  margin-top: 10%;
+  padding: 10px 0;
+  min-height: 50px;
+  background-color: #f3f3f3;
+  display: flex;
+  transition: all 0.5s ease-in;
+  color: var(--secondary-blue);
+  border-radius: 50px;
+  background: linear-gradient(225deg, #fff, #dbdbdb);
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.ui-projects-open {
+  width: 85%;
+  margin-top: 10%;
+  padding: 10px 0;
+  min-height: 50px;
+  background-color: #f3f3f3;
+  display: flex;
+  transition: all 0.5s ease-in;
+  color: var(--secondary-blue);
+  border-radius: 50px;
+  background: linear-gradient(225deg, #fff, #dbdbdb);
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.project-display {
+  position: relative;
+  left: 30vw;
+  height: 100vh;
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-bg {
+  width: 500px;
+  position: absolute;
+  right: -250px;
+  bottom: 0px;
+  filter: grayscale(100%);
+  opacity: 30%;
+}
+
+.illustrator-bg {
+  width: 400px;
+  position: absolute;
+  right: -50px;
+  bottom: 50px;
+  filter: grayscale(100%);
+  opacity: 30%;
+}
+
+.figma-bg {
+  height: 400px;
+  position: absolute;
+  right: -50px;
+  bottom: 50px;
+  filter: grayscale(100%);
+  opacity: 30%;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 80%;
+  width: 65vw;
+  border-radius: 0px;
+  z-index: 9999;
+}
+
+.carousel-wrapper {
+  position: absolute;
+  height: 80%;
+  width: 65vw;
+  overflow: hidden;
+  background: linear-gradient(145deg, #dbdbdb, #ffffff);
+  box-shadow: 22px 22px 44px #c0c0c0, -22px -22px 44px #ffffff;
+}
+
+
+
+#project-card {
+  position: relative;
+  height: 80vh;
+  width: 65vw;
+  margin-left: 20px;
+  border-radius: 20px;
+  overflow-x: hidden;
+  border: 0px;
+}
+
+.project-pic {
+  position: relative;
+  top: 10px;
+  width: 260px;
+  height: 160px;
+  z-index: 1000;
+}
+
+#project-about {
+  height: 80%;
+  width: max(260px, 200px);
+  position: absolute;
+  bottom: 10px;
+  background-color: #ffffff;
+  border: 1px rgba(56, 75, 118, 0) solid;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0px 20px;
+  padding-top: 130px;
+  color: var(--secondary-blue);
+  display: flex;
+  flex-direction: column;
+  transition: all 1s linear;
+}
+
+.live-btn {
+  width: 220px;
+  height: 40px;
+  background-color: #dbdbdb;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--secondary-blue);
+}
+
+.code-btn {
+  width: 220px;
+  height: 40px;
+  background-color: #4e6ba9;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px 0;
+  color: #f3f3f3;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.live-btn:hover,
+.code-btn:hover {
+  transform: scale(102%);
+  transform-origin: center;
+}
+
+.project-info {
+  height: 45px;
+  margin-top: 30px;
+  color: #58595b;
+  opacity: 50%;
+  padding-bottom: 10px;
+}
+
+.project-tech {
+  height: 30px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  color: #58595b;
+  opacity: 50%;
+}
+
+#project-card:hover #project-about {
+  border: 1px #3174fa solid;
+  transform-origin: right;
+}
+
+#project-card:hover #project-desktop {
+  transform: scale(100%);
+}
+
+
+#project-card:hover #project-phone {
+  transform: scale(100%);
+  transform-origin: center;
+}
+
+#project-phone {
+  transition: all .4s ease;
+  transform: scale(95%);
+}
+
+
+#project-desktop {
+  transition: all 1.2s ease;
+  transform: scale(95%);
+  transform-origin: center;
 }
